@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vus JS</title>
+</head>
+<body>
+
+<div id="app">
+    <input type="text" v-model.lazy="someTextFromInput">
+    <h2>{{ someTextFromInput }}</h2>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            someTextFromInput: 'Preset Text'
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vus JS</title>
+</head>
+<body>
+
+<div id="app">
+    <a v-on:click.prevent="" href="http://google.com"> google </a>
+    <h2 v-on:mousemove="coords">{{ x }}, {{ y }}
+    <span v-on:mousemove.stop="">Stop change</span></h2>
+    <hr>
+    <input type="text" v-on:keyup.enter.space="alertMsg">
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            x: 0,
+            y: 0
+        },
+        methods: {
+            coords: function (event) {
+                this.x = event.clientX;
+                this.y = event.clientY;
+            },
+            alertMsg: function (event) {
+                alert(event.target.value);
+            }
+        }
+    });
+</script>
+</body>
+</html>

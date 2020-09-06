@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+
+</head>
+<body>
+
+<div id="app">
+    <div><h3>Counters : {1} = {{ counter1 }}  | {2} = {{ counter2 }} </h3></div>
+    <div>
+        Result = {{ methodResult() }} | Computed result = {{ computedResult }}
+    </div>
+    <div>
+        <button @click="methodAdd()">add C1</button>
+        <button @click="methodSub()">sub C1</button>
+        <button @click="methodAdd2">add C2</button>
+        <button @click="methodSub2">sub C2</button>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            counter1: 0,
+            counter2: 0
+        },
+        methods: {
+            methodAdd : function () {
+                this.counter1++;
+            },
+            methodSub : function () {
+                this.counter1--;
+            },
+            methodAdd2 : function () {
+                this.counter2++;
+            },
+            methodSub2 : function () {
+                this.counter2--;
+            },
+            methodResult: function () {
+                console.log('methodResult called');
+                return this.counter1 ? 'Положительное число' : 'Отрицательное число' ;
+            }
+        },
+        computed: {
+            computedResult: function () {
+                console.log('computedResult called');
+                return this.counter2 ? 'Положительное число' : 'Отрицательное число' ;
+            }
+        }
+    })
+</script>
+</body>
+</html>

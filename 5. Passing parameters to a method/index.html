@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vus JS</title>
+</head>
+<body>
+
+<div id="app">
+    <h2>Счётчик: {{ myCounter }}</h2>
+    <button v-on:click="myCounterInc(5, 'Прибавить еще 5', $event)"> {{ str }} </button>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            myCounter : 0,
+            str: 'Прибавить 5'
+        },
+        methods: {
+            myCounterInc: function (count, str, event) {
+                this.myCounter+= count;
+                this.str = str;
+                event.target.style.color = 'blue';
+            }
+        }
+    });
+</script>
+</body>
+</html>

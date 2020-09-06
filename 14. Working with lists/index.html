@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+
+</head>
+<body>
+
+<div id="app">
+    <div>{{ names[0] }}</div>
+    <hr>
+    <div v-for="name in names">{{ name }}</div>
+    <hr>
+    <div v-for="(name, index) in names">{{ index+1 }} {{ name }}</div>
+    <hr>
+    <div v-for="obj in objects">in {{ obj.car }} {{ obj.age }}</div>
+    <hr>
+    <div v-for="obj of objects">of {{ obj.car }} {{ obj.age }}</div>
+    <hr>
+    <div v-for="inc of 10">{{ inc }}</div>
+    <hr>
+    <div v-for="(field, key, index) of singleObject">{{ index }} {{ key }} {{ field }}</div>
+    <hr>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            names: ['Alexey','Mariya', 'Sergey'],
+            objects: [
+                { car: 'BMW' , age: 3},
+                { car: 'Mercedes' , age: 2},
+                { car: 'Audi' , age: 6},
+            ],
+            singleObject: {
+                name: 'Alexey',
+                age : 32,
+                sex: 'Male',
+                work: 'Programmer'
+            }
+        }
+    })
+</script>
+</body>
+</html>

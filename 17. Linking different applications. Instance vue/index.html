@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+
+</head>
+<body>
+
+<div id="app">
+    <h2>{{ title }}</h2>
+</div>
+
+<div id="app2">
+    <button @click="changeTitle">Button from APP 2 change app 1 title</button>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+    let vueApp = new Vue({
+        el: '#app',
+        data: {
+            title: 'This is title from APP'
+        }
+    });
+
+    new Vue({
+        el: '#app2',
+        methods: {
+            changeTitle : function () {
+                vueApp.title = 'NEW TITLE FROM APP2';
+            }
+        }
+    })
+</script>
+</body>
+</html>
